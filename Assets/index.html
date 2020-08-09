@@ -25,14 +25,14 @@
                     <h5>Search for a city:</h5>
                     <div class="form-row">
                       <div class="col">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search" id="search-bar" value="">
                       </div>
                       <button type="button" class="btn btn-primary" id="searchBtn">Submit</button>
                     </div>
                   </form>
             </div>
             <div>
-                 <ul class="list-group list-group-flush">
+                 <ul class="list-group list-group-flush" id="search-list">
                     <li button type="button" class="list-group-item">placeholder</li>
                     <li button type="button" class="list-group-item">placeholder</li>
                     <li button type="button" class="list-group-item">placeholder</li>
@@ -42,12 +42,12 @@
        
            <div class="card col-sm-9">
                 <div class="card-header">
-                  Current Weather
+                  <h4>Current Weather</h4>
                 </div>
                 <div class="card-body">
                      <blockquote class="blockquote mb-0">
                         <div class="currentWeather">
-                            <p>Placeholder</p>
+                            <p></p>
                         </div>
                     </blockquote>
                 </div>
@@ -90,7 +90,45 @@
          </div>
         </div>
     </section>
-
+    <!-- id/classes list to call from 
+        id="search-bar"
+        id="searchBtn"
+        id="search-list"
+        class="currentWeather"
+        class="card-body-one"
+        class="card-body-two"
+        class="card-body-three"
+        class="card-body-four"
+    -->
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<script>
+    function displayWeatherInfo() {
+    var searchInput = $("#search-bar").val();
+    var APIKey = "90221d6955c424fe373d730a9dc662f5";
+    var queryURL ="https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=" + APIKey;
+
+    console.log(searchInput);
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        
+
+    });
+
+}
+
+
+    $(document).ready(function() {
+    $('#searchBtn').on('click', function(event){
+     event.preventDefault();
+     console.log('clicked');
+     
+     displayWeatherInfo();
+    });
+})
+</script>
 </html>
