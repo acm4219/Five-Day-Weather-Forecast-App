@@ -32,11 +32,7 @@
                   </form>
             </div>
             <div>
-                 <ul class="list-group list-group-flush" id="search-list">
-                    <li button type="button" class="list-group-item">placeholder</li>
-                    <li button type="button" class="list-group-item">placeholder</li>
-                    <li button type="button" class="list-group-item">placeholder</li>
-                 </ul>
+                 <ul class="list-group list-group-flush" id="search-list"></ul>
             </div>
           </div>
        
@@ -104,31 +100,55 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </script>
 <script>
+    var cityList = [];
+
     function displayWeatherInfo() {
-    var searchInput = $("#search-bar").val();
-    var APIKey = "90221d6955c424fe373d730a9dc662f5";
-    var queryURL ="https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=" + APIKey;
+        var searchInput = $("#search-bar").val();
+        var searchOutput = $(this).attr('city-selected');
+        var APIKey = "90221d6955c424fe373d730a9dc662f5";
+        var queryURL ="https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=" + APIKey;
+        // var queryURLTwo ="https://api.openweathermap.org/data/2.5/forecast?q=" + searchOutput + "&appid=" + APIKey;
+        console.log(searchOutput);
+        console.log(searchInput);
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+         console.log(response);
+         var weatherBoard = $('.currentWeather');
+         var dayOne = $('.card-body-one');
+         var dayTwo = $('.card-body-two');
+         var dayThree = $('.card-body-three');
+         var dayFour = $('.card-body-four');  
+         var dayFive = $('.card-body-five');
 
-    console.log(searchInput);
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response);
-        
+        });
 
-    });
+    }
 
-}
-
+    function renderSearches(){
+        $('#search-list').empty();
+        for (var i = 0; i < cityList.length; i++){
+            var city = $('<button>')
+            city.addClass("city-selected");
+            city.attr('data-name', cityList[i]);
+            city.text(cityList[i]);
+            $('#search-list').append(city);
+        }
+    }
 
     $(document).ready(function() {
     $('#searchBtn').on('click', function(event){
      event.preventDefault();
      console.log('clicked');
-     
+     var searchReq = $('#search-bar').val().trim();
+     cityList.push(searchReq);
+     renderSearches();
      displayWeatherInfo();
     });
-})
+
+    })
+
+    $(document).on("click", ".city-selected", displayWeatherInfo);
 </script>
 </html>
