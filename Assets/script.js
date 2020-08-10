@@ -10,13 +10,12 @@ function pullLocal(){
     }
 }
 
-function displayWeatherInfo() {
-    var searchInput = $("#search-bar").val();
+function displayWeatherInfo(searchReq) {
     var searchOutput = $(this).attr('city-selected');
     var APIKey = "90221d6955c424fe373d730a9dc662f5";
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchReq + "&appid=" + APIKey;
     // var queryURLTwo ="https://api.openweathermap.org/data/2.5/forecast?q=" + searchOutput + "&appid=" + APIKey;
-    console.log(searchInput);
+    // console.log(searchInput);
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -70,10 +69,13 @@ $('#searchBtn').on('click', function(event){
  cityList.push(searchReq);
  JSON.stringify(localStorage.setItem('amendedList', cityList));
  renderSearches();
- displayWeatherInfo();
+ displayWeatherInfo(searchReq);
 });
 
 })
 
-$(document).on("click", ".city-selected", displayWeatherInfo);
+$(document).on("click", ".city-selected", function(){
+    var searchReq = $(this).attr('data-name');
+    displayWeatherInfo(searchReq);
+});
 
