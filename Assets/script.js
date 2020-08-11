@@ -74,20 +74,24 @@ function displayWeatherInfo(searchReq) {
      //---------
      //----Card Two
      date2.text(response.list[16].dt_txt);
+     currentWeather2.text('Weather: ' + response.list[16].weather[0].description);
      cityTemp2.text('Temperature: ' + tempFarTwo.toFixed(2));
      cityHumid2.text('Humidity: ' + response.list[16].main.humidity);
      //----
      //----Card Three
      date3.text(response.list[24].dt_txt);
+     currentWeather3.text('Weather: ' + response.list[24].weather[0].description);
      cityTemp3.text('Temperature: ' + tempFarThree.toFixed(2));
      cityHumid3.text('Humidity: ' + response.list[24].main.humidity);
      //----Card Four
      date4.text(response.list[32].dt_txt);
+     currentWeather4.text('Weather: ' + response.list[32].weather[0].description);
      cityTemp4.text('Temperature: ' + tempFarFour.toFixed(2));
      cityHumid4.text('Humidity: ' + response.list[32].main.humidity);
      //----
      //----Card Five
      date5.text(response.list[39].dt_txt);
+     currentWeather5.text('Weather: ' + response.list[39].weather[0].description);
      cityTemp5.text('Temperature: ' + tempFarFive.toFixed(2));
      cityHumid5.text('Humidity: ' + response.list[39].main.humidity);
      //----
