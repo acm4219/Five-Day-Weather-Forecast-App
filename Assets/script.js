@@ -30,23 +30,38 @@ function displayWeatherInfo(searchReq) {
      var tempFar = (response.list[0].main.temp - 273.15) * 1.80 + 32;
      //----
      //----Card One
+     var date1 = $('.date1')
+     var currentWeather1 = $('.icon1')
      var cityTemp1 = $('.temp1');
+     var cityHumid1 = $('.humid1')
      var tempFarOne = (response.list[8].main.temp - 273.15) * 1.80 + 32;
      //----
      //----Card Two
+     var date2 = $('.date2')
+     var currentWeather2 = $('.icon1')
      var cityTemp2 = $('.temp2');
+     var cityHumid2 = $('.humid1')
      var tempFarTwo = (response.list[16].main.temp - 273.15) * 1.80 + 32;
      //----
      //----Card Three
+     var date3 = $('.date3')
+     var currentWeather3 = $('.icon1')
      var cityTemp3 = $('.temp3');
+     var cityHumid3 = $('.humid1')
      var tempFarThree = (response.list[24].main.temp - 273.15) * 1.80 + 32;
      //----
      //----Card Four
+     var date4 = $('.date4')
+     var currentWeather4 = $('.icon1')
      var cityTemp4 = $('.temp4');
+     var cityHumid4 = $('.humid1')
      var tempFarFour = (response.list[32].main.temp - 273.15) * 1.80 + 32;
      //----
      //----Card Five
+     var date5 = $('.date5')
+     var currentWeather5 = $('.icon1')
      var cityTemp5 = $('.temp5');
+     var cityHumid5 = $('.humid1')
      var tempFarFive = (response.list[39].main.temp - 273.15) * 1.80 + 32;
      //----
      
@@ -60,17 +75,22 @@ function displayWeatherInfo(searchReq) {
      //---------
 
      //---------Card One
+     date1.text(response.list[8].dt_txt);
      cityTemp1.text('Temperature: ' + tempFarOne.toFixed(2));
      //---------
      //----Card Two
+     date2.text(response.list[16].dt_txt);
      cityTemp2.text('Temperature: ' + tempFarTwo.toFixed(2));
      //----
      //----Card Three
+     date3.text(response.list[24].dt_txt);
      cityTemp3.text('Temperature: ' + tempFarThree.toFixed(2));
      //----Card Four
+     date4.text(response.list[32].dt_txt);
      cityTemp4.text('Temperature: ' + tempFarFour.toFixed(2));
      //----
      //----Card Five
+     date5.text(response.list[39].dt_txt);
      cityTemp5.text('Temperature: ' + tempFarFive.toFixed(2));
      //----
 
