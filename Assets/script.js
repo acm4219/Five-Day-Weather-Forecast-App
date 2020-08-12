@@ -65,7 +65,7 @@ function displayWeatherInfo(searchReq) {
      var tempFarInt = parseInt(tempFar);
      console.log(tempFarInt);
      //----- Main Card
-     cityName.html(response.city.name + ' ' + response.list[0].dt_txt);
+     cityName.html(response.city.name + ' ' + response.list[0].dt_txt.split(" ")[0]);
      currentWeather.html('Current Weather Condition: '+ weatherIcon + response.list[0].weather[0].description);
      cityTemp.text('Temperature: ' + tempFar.toFixed(2));
      cityHumid.text('Humidity: ' + response.list[0].main.humidity);
@@ -73,30 +73,30 @@ function displayWeatherInfo(searchReq) {
      //---------
 
      //---------Card One
-     date1.text(response.list[8].dt_txt);
+     date1.text(response.list[8].dt_txt.split(" ")[0]);
      currentWeather1.html('Weather: ' + response.list[8].weather[0].description + " " + weatherIcon2);
      cityTemp1.text('Temperature: ' + tempFarOne.toFixed(2));
      cityHumid1.text('Humidity: ' + response.list[8].main.humidity);
      //---------
      //----Card Two
-     date2.text(response.list[16].dt_txt);
+     date2.text(response.list[16].dt_txt.split(" ")[0]);
      currentWeather2.html('Weather: ' + response.list[16].weather[0].description + " " + weatherIcon3);
      cityTemp2.text('Temperature: ' + tempFarTwo.toFixed(2));
      cityHumid2.text('Humidity: ' + response.list[16].main.humidity);
      //----
      //----Card Three
-     date3.text(response.list[24].dt_txt);
+     date3.text(response.list[24].dt_txt.split(" ")[0]);
      currentWeather3.html('Weather: ' + response.list[24].weather[0].description + " " + weatherIcon4);
      cityTemp3.text('Temperature: ' + tempFarThree.toFixed(2));
      cityHumid3.text('Humidity: ' + response.list[24].main.humidity);
      //----Card Four
-     date4.text(response.list[32].dt_txt);
+     date4.text(response.list[32].dt_txt.split(" ")[0]);
      currentWeather4.html('Weather: ' + response.list[32].weather[0].description + " " + weatherIcon5);
      cityTemp4.text('Temperature: ' + tempFarFour.toFixed(2));
      cityHumid4.text('Humidity: ' + response.list[32].main.humidity);
      //----
      //----Card Five
-     date5.text(response.list[39].dt_txt);
+     date5.text(response.list[39].dt_txt.split(" ")[0]);
      currentWeather5.html('Weather: ' + response.list[39].weather[0].description + " " + weatherIcon6);
      cityTemp5.text('Temperature: ' + tempFarFive.toFixed(2));
      cityHumid5.text('Humidity: ' + response.list[39].main.humidity);
