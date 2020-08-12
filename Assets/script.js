@@ -1,6 +1,6 @@
 let cityList = JSON.parse(localStorage.getItem('amendedList') || "[]");
  renderSearches();
-
+ 
 function displayWeatherInfo(searchReq) {
     var APIKey = "90221d6955c424fe373d730a9dc662f5";
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchReq + "&appid=" + APIKey;
